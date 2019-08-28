@@ -511,7 +511,7 @@ class Dropbox
      * @link https://www.dropbox.com/developers/documentation/http/documentation#files-delete
      *
      */
-    public function delete($path)
+    public function delete($path, $params = array())
     {
         //Path cannot be null
         if (is_null($path)) {
@@ -519,7 +519,7 @@ class Dropbox
         }
 
         //Delete
-        $response = $this->postToAPI('/files/delete_v2', ['path' => $path]);
+        $response = $this->postToAPI('/files/delete_v2', array_merge(['path' => $path], $params));
         $body = $response->getDecodedBody();
 
         //Response doesn't have Metadata
