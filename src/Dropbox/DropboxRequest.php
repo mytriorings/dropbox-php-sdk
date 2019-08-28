@@ -94,8 +94,12 @@ class DropboxRequest
         $this->setEndpoint($endpoint);
         $this->setAccessToken($accessToken);
         $this->setEndpointType($endpointType);
-        $this->setParams($params);
+        if (array_key_exists('headers', $params) && is_array($params['headers'])) {
+            $headers = array_merge($headers, $params['headers']);
+            unset($params['headers']);
+        }
         $this->setHeaders($headers);
+        $this->setParams($params);
 
         if ($contentType) {
             $this->setContentType($contentType);
