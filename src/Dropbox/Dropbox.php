@@ -26,22 +26,22 @@ class Dropbox
 {
     /**
      * Uploading a file with the 'uploadFile' method, with the file's
-     * size less than this value (~8 MB), the simple `upload` method will be
-     * used, if the file size exceed this value (~8 MB), the `startUploadSession`,
+     * size less than this value (~100 MB), the simple `upload` method will be
+     * used, if the file size exceed this value (~100 MB), the `startUploadSession`,
      * `appendUploadSession` & `finishUploadSession` methods will be used
      * to upload the file in chunks.
      *
      * @const int
      */
-    const AUTO_CHUNKED_UPLOAD_THRESHOLD = 8000000;
+    const AUTO_CHUNKED_UPLOAD_THRESHOLD = 104857600;
 
     /**
      * The Chunk Size the file will be
-     * split into and uploaded (~4 MB)
+     * split into and uploaded (~8 MB)
      *
      * @const int
      */
-    const DEFAULT_CHUNK_SIZE = 4000000;
+    const DEFAULT_CHUNK_SIZE = 8388608;
 
     /**
      * Response header containing file metadata
